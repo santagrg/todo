@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
+from crud.models import employees
 
 # Create your views here.
 
@@ -37,8 +38,12 @@ def signin(request):
 
     return render(request, "signin.html")
 
+@login_required(login_url="signin")
 def home(request):
-    return render(request, "home.html")
+    detail=employees.objects.all()
+    return render(request, "home.html",{
+        "detail":detail
+    })
 
 def logout_view(request):
     logout(request)
