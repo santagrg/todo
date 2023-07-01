@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Header Example</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<style>
+    header {
+        background-color: #333;
+        padding: 10px;
+        color: #fff;
+    }
+    
+    nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    nav ul li {
+        display: inline;
+    }
+    
+    nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        margin-right: 10px;
+    }
+    
+    nav ul li a:hover {
+        text-decoration: underline;
+    }
+    
+</style>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Add Employee</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href=" {% url 'logout' %} ">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+{% block content %}
+{% endblock %}
+
+    <!-- Rest of your page content -->
+</body>
+</html>

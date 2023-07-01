@@ -16,8 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from fun import urls
+from crud import urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", include('fun.urls'))
+    path("", include('fun.urls')),
+    path("crud/", include("crud.urls"))
 ]
