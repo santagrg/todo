@@ -45,7 +45,7 @@
 <body>
   <div class="form-container">
     <h1>EDIT EMPLOYEE</h1>
-    <form method="POST">
+    <form action="{% url 'crud:doedit' roll=emp.pk %}" method="POST">
       {% csrf_token %}
       <div class="form-group">
         <label for="name" class="form-label">Name:</label>
