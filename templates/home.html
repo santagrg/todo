@@ -46,8 +46,8 @@
           <td>{{e.eemail}}</td>
           <td>{{e.ephone}}</td>
           <td>
-            <a href="/crud/delete/{{em.roll}}" class="">Delete</a>
-            <a href="/crud/edit/{{emp.roll}}" class="href">Edit</a>
+            <a href="{% url 'crud:delete' roll=e.pk %}" class="">Delete</a>
+            <a href="{% url 'crud:edit' roll=e.pk %}" class="href">Edit</a>
           </td>
         </tr>
         {% endfor %}

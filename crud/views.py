@@ -27,10 +27,28 @@ def employee(request):
 def edelete(request, roll):
     em = employees.objects.get(pk=roll)
     em.delete()
-    return redirect("/home")
+    return redirect("/home/")
 
-def edit_emp(request):
+def edit_emp(request, roll):
     emp = employees.objects.get(pk=roll)
-    return render(request, "edit,html", {
+    return render(request, "edit.html", {
         "emp":emp
     })
+
+def do_edit_emp(request, roll):
+    if request.method=="POST":
+        nname=request.POST.get("nname")
+        nemail=request.POST.get("nemail")
+        nphone=request.POST.get("nphone")
+        naddress=request.POST.get("naddress")
+
+        n = employees.objects.get(pk=roll)
+        n.ename=nname
+        n.eemail=nemail
+        n.ephone=nphone
+        n.eaddress=naddress
+
+        n.save()
+
+        return redirect("/home/")
+

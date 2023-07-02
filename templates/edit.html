@@ -44,24 +44,24 @@
 </head>
 <body>
   <div class="form-container">
-    <h1>ADD EMPLOYEE</h1>
+    <h1>EDIT EMPLOYEE</h1>
     <form method="POST">
       {% csrf_token %}
       <div class="form-group">
         <label for="name" class="form-label">Name:</label>
-        <input type="text" value={{emp.ename}} id="name" class="form-input" required>
+        <input type="text" name="nname" value={{emp.ename}} id="name" class="form-input" required>
       </div>
       <div class="form-group">
         <label for="address" class="form-label">Address:</label>
-        <input type="text" value={{emp.eaddress}} id="address" class="form-input" required>
+        <input type="text" name="naddress" value={{emp.eaddress}} id="address" class="form-input" required>
       </div>
       <div class="form-group">
         <label for="email" class="form-label">Email:</label>
-        <input type="email" value={{emp.eemail}} id="email" class="form-input" required>
+        <input type="email" name="nemail" value={{emp.eemail}} id="email" class="form-input" required>
       </div>
       <div class="form-group">
         <label for="phone" class="form-label">Phone Number:</label>
-        <input type="tel" id="phone" value={{emp.ephone}} class="form-input" required>
+        <input type="tel" name="nphone" id="phone" value={{emp.ephone}} class="form-input" required>
       </div>
       <button type="submit" class="form-submit">Submit</button>
     </form>
