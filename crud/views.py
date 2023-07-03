@@ -1,9 +1,13 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import employees
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login, logout
+
 
 
 # Create your views here.
+@login_required(login_url="signin")
 def employee(request):
     if request.method=="POST":
         e_name=request.POST.get("e_name")
@@ -29,6 +33,7 @@ def edelete(request, roll):
     em.delete()
     return redirect("/home/")
 
+@login_required(login_url="signin")
 def edit_emp(request, roll):
     emp = employees.objects.get(pk=roll)
     return render(request, "edit.html", {
